@@ -4,6 +4,10 @@ local assets = {
 	Asset("ATLAS", "images/giftwrap_tool.xml"),
 }
 
+local function OnStartBundling(inst)--, doer)
+    inst:Remove()
+end
+
 local function fn()
 	local inst = CreateEntity()
 	inst.entity:AddTransform()
@@ -13,8 +17,8 @@ local function fn()
 	MakeInventoryPhysics(inst)
 
 	inst.AnimState:SetBank("giftwrap_tool")
-	inst.AnimState:SetBuild("swap_giftwrap_tool")
-	inst.AnimState:PlayAnimation("idle")
+	inst.AnimState:SetBuild("giftwrap_tool")
+	inst.AnimState:PlayAnimation("idle", true)
 
 	MakeInventoryFloatable(inst)
 	--------------------------------------------------------------------------
@@ -27,6 +31,13 @@ local function fn()
 	inst:AddComponent("inventoryitem")
 	inst.components.inventoryitem.imagename = "giftwrap_tool"
 	inst.components.inventoryitem.atlasname = "images/giftwrap_tool.xml"
+
+	-- inst:AddComponent("bundlemaker")
+	-- inst.components.bundlemaker:SetBundlingPrefabs("bundle_container", "gift")
+	-- inst.components.bundlemaker:SetOnStartBundlingFn(OnStartBundling)
+	-- inst.components.bundlemaker:SetOnEndBundlingFn(nil)
+
+	inst:AddComponent("bundler")
 
 	return inst
 end

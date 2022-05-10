@@ -10,6 +10,9 @@ dst_compatible = true
 all_clients_require_mod = true
 clients_only_mod = false
 
+icon_atlas = "modicon.xml"
+icon = "modicon.tex"
+
 local function section(name)
 	return {
 		name = "",
@@ -27,6 +30,24 @@ local function section(name)
 end
 
 configuration_options = {
+	{
+		name = "lang",
+		label = "语言",
+		description = "语言",
+		options = {
+			{
+				description = "简体中文",
+				hover = "简体中文",
+				data = "zh-hans",
+			},
+			{
+				description = "English",
+				hover = "English",
+				data = "en",
+			}
+		},
+		default = "zh-hans",
+	},
 	section("礼物包装"),
 	{
 		name = "giftwrap_craft_difficulty",

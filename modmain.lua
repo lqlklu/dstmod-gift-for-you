@@ -1,3 +1,5 @@
+PrefabFiles = { "giftwrap_tool" }
+
 local recipes = {}
 
 if true then
@@ -74,13 +76,27 @@ end
 if GetModConfigData("giftwrap_tool") then
 	table.insert(recipes, {
 		name = "giftwrap_tool",
-		ingredients = {},
+		ingredients = {
+			Ingredient("goldnugget", 10),
+			Ingredient("rope", 10),
+		},
 		tech = GLOBAL.TECH.NONE,
-		config = {},
+		config = {
+			nounlock = true,
+			image = "giftwrap_tool.tex",
+			atlas = "images/giftwrap_tool.xml",
+		},
 		filters = { "MODS", "CONTAINERS", "TOOLS" },
 	})
 end
 
 for _, v in pairs(recipes) do
 	AddRecipe2(v.name, v.ingredients, v.tech, v.config, v.filters)
+end
+
+
+if GetModConfigData("lang") == "zh-hans" then
+	require "languages/zh-hans"
+else
+	require "languages/en"
 end
