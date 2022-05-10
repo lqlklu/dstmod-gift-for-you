@@ -178,36 +178,4 @@ configuration_options = {
 		},
 		default = false,
 	},
-	section("礼物包装工具"),
-	{
-		name = "giftwrap_tool",
-		label = "制作",
-		hover = "开启制作礼物包装工具",
-		options = {
-			{
-				description = "开启",
-				hover = "开启",
-				data = true,
-			},
-			{
-				description = "关闭",
-				hover = "关闭",
-				data = false,
-			},
-		},
-		default = false,
-	},
-	{
-		name = "giftwrap_tool_use",
-		label = "耐久",
-		hover = "礼物包装工具耐久",
-		options = {
-			{
-				description = "100次",
-				hover = "100次",
-				data = 100,
-			},
-		},
-		default = 100,
-	},
 }

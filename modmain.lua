@@ -73,23 +73,6 @@ if GetModConfigData("bundle_nesting") then
 	end)
 end
 
-if GetModConfigData("giftwrap_tool") then
-	table.insert(recipes, {
-		name = "giftwrap_tool",
-		ingredients = {
-			Ingredient("goldnugget", 10),
-			Ingredient("rope", 10),
-		},
-		tech = GLOBAL.TECH.NONE,
-		config = {
-			nounlock = true,
-			image = "giftwrap_tool.tex",
-			atlas = "images/giftwrap_tool.xml",
-		},
-		filters = { "MODS", "CONTAINERS", "TOOLS" },
-	})
-end
-
 for _, v in pairs(recipes) do
 	AddRecipe2(v.name, v.ingredients, v.tech, v.config, v.filters)
 end
